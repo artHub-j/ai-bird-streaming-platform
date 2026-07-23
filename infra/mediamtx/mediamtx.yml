@@ -1,0 +1,27 @@
+# Configuració mínima de MediaMTX per a la demo local.
+# Documentació completa: https://github.com/bluenviron/mediamtx
+
+# Autenticació externa: MediaMTX crida aquest endpoint per a CADA acció
+# (publish, read...) enviant un JSON amb user/password/action/path/etc.
+# Correspon exactament al model MediaMTXAuthRequest de apps/backend/main.py.
+authMethod: http
+authHTTPAddress: http://backend:8000/api/mediamtx/auth
+
+# RTSP: on l'Edge publica el stream (push)
+rtsp: yes
+rtspAddress: :8554
+protocols: [tcp]
+
+# HLS: el que consumeix el frontend (ProvaTokenStream.jsx apunta a :8888)
+hls: yes
+hlsAddress: :8888
+hlsAllowOrigin: "*"
+hlsVariant: lowLatency
+
+# WebRTC: previst al diagrama per al Media Server, deshabilitat per simplicitat
+# a la demo local (HLS és suficient per validar el flux end-to-end).
+webrtc: no
+
+paths:
+  # Path genèric: qualsevol "camN" queda cobert per aquesta entrada.
+  all_others:
