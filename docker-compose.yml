@@ -64,7 +64,7 @@ services:
       # Per fer proves fàcilment sense un vídeo real d'ocells: si et mostres
       # tu mateix movent-te davant la font de vídeo, canvia-ho a "person"
       # per validar tot el pipeline (moviment -> YOLO -> crop -> API -> BBDD).
-      BIRD_CLASS_NAME: person #bird
+      BIRD_CLASS_NAME: bird
     volumes:
       - ./apps/edge/models:/app/models
       - ./apps/edge/media:/app/media
